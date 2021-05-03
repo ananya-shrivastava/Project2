@@ -1,0 +1,6 @@
+message Building {
+  required int64 building_code = 1;
+  required int32 total_floors = 2;
+  required int32 companies_in_the_building = 3;
+  required string cafeteria_code = 4;
+}

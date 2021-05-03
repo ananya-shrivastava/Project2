@@ -1,0 +1,23 @@
+SetAndGetProtoObject.java
+ SetAndGetProtoObject
+WriteProtoToHdfs.java
+ WriteProtoToHdfs
+BuildingOuterClass.java
+ BuildingOuterClass
+ BuildingOuterClass$1
+ BuildingOuterClass$Building
+ BuildingOuterClass$Building$1
+ BuildingOuterClass$Building$Builder
+ BuildingOuterClass$BuildingOrBuilder
+EmployeeOuterClass.java
+ EmployeeOuterClass
+ EmployeeOuterClass$1
+ EmployeeOuterClass$Employee
+ EmployeeOuterClass$Employee$1
+ EmployeeOuterClass$Employee$Builder
+ EmployeeOuterClass$Employee$FloorNumber
+ EmployeeOuterClass$Employee$FloorNumber$1
+ EmployeeOuterClass$EmployeeOrBuilder
+MRForSeqFileReader.java
+ MRForSeqFileReader
+ MRForSeqFileReader$SeqFileMapper

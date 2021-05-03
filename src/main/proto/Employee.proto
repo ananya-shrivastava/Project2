@@ -1,0 +1,13 @@
+message Employee {
+  required int64 employee_id = 1; //unique numbers that are used for serializing and deserializing data
+  required string name = 2;
+  required int32 building_code = 3;
+  enum FloorNumber {
+    GROUND = 0;
+    FIRST = 1;
+    SECOND = 2;
+  }
+  required FloorNumber floor_number = 4;
+  required int64 salary = 5;
+  required string department = 6;
+}
