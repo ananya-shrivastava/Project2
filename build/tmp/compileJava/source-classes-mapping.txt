@@ -1,5 +1,8 @@
 SetAndGetProtoObject.java
  SetAndGetProtoObject
+LoadEmployeeProtoToHbase.java
+ LoadEmployeeProtoToHbase
+ LoadEmployeeProtoToHbase$EmployeeMapper
 WriteProtoToHdfs.java
  WriteProtoToHdfs
 BuildingOuterClass.java
@@ -18,6 +21,9 @@ EmployeeOuterClass.java
  EmployeeOuterClass$Employee$FloorNumber
  EmployeeOuterClass$Employee$FloorNumber$1
  EmployeeOuterClass$EmployeeOrBuilder
+LoadBuildingProtoToHbase.java
+ LoadBuildingProtoToHbase
+ LoadBuildingProtoToHbase$MyMapper
 MRForSeqFileReader.java
  MRForSeqFileReader
  MRForSeqFileReader$SeqFileMapper

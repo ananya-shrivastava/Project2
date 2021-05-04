@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 public class SetAndGetProtoObject {
 
-    private static final String EMPLOYEE_CSV_FILE_PATH = "/Users/ananyashrivastava/IdeaProjects/EmployeeCsvToProto/src/main/resources/employee.csv";
-    private static final String BUILDING_CSV_FILE_PATH = "/Users/ananyashrivastava/IdeaProjects/EmployeeCsvToProto/src/main/resources/building.csv";
+    private static final String EMPLOYEE_CSV_FILE_PATH = "/Users/ananyashrivastava/IdeaProjects/BigDataProjectQ3-Q4/src/main/resources/employee.csv";
+    private static final String BUILDING_CSV_FILE_PATH = "/Users/ananyashrivastava/IdeaProjects/BigDataProjectQ3-Q4/src/main/resources/building.csv";
 
     public static void main(String args[]) throws IOException, Exception {
 

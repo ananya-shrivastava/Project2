@@ -10,4 +10,5 @@ message Employee {
   required FloorNumber floor_number = 4;
   required int64 salary = 5;
   required string department = 6;
+  optional string cafeteria_code = 7;
 }

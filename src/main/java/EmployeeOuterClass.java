@@ -101,6 +101,23 @@ public final class EmployeeOuterClass {
      */
     com.google.protobuf.ByteString
         getDepartmentBytes();
+
+    /**
+     * <code>optional string cafeteria_code = 7;</code>
+     * @return Whether the cafeteriaCode field is set.
+     */
+    boolean hasCafeteriaCode();
+    /**
+     * <code>optional string cafeteria_code = 7;</code>
+     * @return The cafeteriaCode.
+     */
+    java.lang.String getCafeteriaCode();
+    /**
+     * <code>optional string cafeteria_code = 7;</code>
+     * @return The bytes for cafeteriaCode.
+     */
+    com.google.protobuf.ByteString
+        getCafeteriaCodeBytes();
   }
   /**
    * Protobuf type {@code Employee}
@@ -118,6 +135,7 @@ public final class EmployeeOuterClass {
       name_ = "";
       floorNumber_ = 0;
       department_ = "";
+      cafeteriaCode_ = "";
     }
 
     @java.lang.Override
@@ -188,6 +206,12 @@ public final class EmployeeOuterClass {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000020;
               department_ = bs;
+              break;
+            }
+            case 58: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000040;
+              cafeteriaCode_ = bs;
               break;
             }
             default: {
@@ -508,6 +532,54 @@ public final class EmployeeOuterClass {
       }
     }
 
+    public static final int CAFETERIA_CODE_FIELD_NUMBER = 7;
+    private volatile java.lang.Object cafeteriaCode_;
+    /**
+     * <code>optional string cafeteria_code = 7;</code>
+     * @return Whether the cafeteriaCode field is set.
+     */
+    @java.lang.Override
+    public boolean hasCafeteriaCode() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <code>optional string cafeteria_code = 7;</code>
+     * @return The cafeteriaCode.
+     */
+    @java.lang.Override
+    public java.lang.String getCafeteriaCode() {
+      java.lang.Object ref = cafeteriaCode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          cafeteriaCode_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string cafeteria_code = 7;</code>
+     * @return The bytes for cafeteriaCode.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCafeteriaCodeBytes() {
+      java.lang.Object ref = cafeteriaCode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cafeteriaCode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -564,6 +636,9 @@ public final class EmployeeOuterClass {
       if (((bitField0_ & 0x00000020) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, department_);
       }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, cafeteriaCode_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -594,6 +669,9 @@ public final class EmployeeOuterClass {
       }
       if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, department_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, cafeteriaCode_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -639,6 +717,11 @@ public final class EmployeeOuterClass {
         if (!getDepartment()
             .equals(other.getDepartment())) return false;
       }
+      if (hasCafeteriaCode() != other.hasCafeteriaCode()) return false;
+      if (hasCafeteriaCode()) {
+        if (!getCafeteriaCode()
+            .equals(other.getCafeteriaCode())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -675,6 +758,10 @@ public final class EmployeeOuterClass {
       if (hasDepartment()) {
         hash = (37 * hash) + DEPARTMENT_FIELD_NUMBER;
         hash = (53 * hash) + getDepartment().hashCode();
+      }
+      if (hasCafeteriaCode()) {
+        hash = (37 * hash) + CAFETERIA_CODE_FIELD_NUMBER;
+        hash = (53 * hash) + getCafeteriaCode().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -821,6 +908,8 @@ public final class EmployeeOuterClass {
         bitField0_ = (bitField0_ & ~0x00000010);
         department_ = "";
         bitField0_ = (bitField0_ & ~0x00000020);
+        cafeteriaCode_ = "";
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
@@ -873,6 +962,10 @@ public final class EmployeeOuterClass {
           to_bitField0_ |= 0x00000020;
         }
         result.department_ = department_;
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.cafeteriaCode_ = cafeteriaCode_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -942,6 +1035,11 @@ public final class EmployeeOuterClass {
         if (other.hasDepartment()) {
           bitField0_ |= 0x00000020;
           department_ = other.department_;
+          onChanged();
+        }
+        if (other.hasCafeteriaCode()) {
+          bitField0_ |= 0x00000040;
+          cafeteriaCode_ = other.cafeteriaCode_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -1335,6 +1433,90 @@ public final class EmployeeOuterClass {
         onChanged();
         return this;
       }
+
+      private java.lang.Object cafeteriaCode_ = "";
+      /**
+       * <code>optional string cafeteria_code = 7;</code>
+       * @return Whether the cafeteriaCode field is set.
+       */
+      public boolean hasCafeteriaCode() {
+        return ((bitField0_ & 0x00000040) != 0);
+      }
+      /**
+       * <code>optional string cafeteria_code = 7;</code>
+       * @return The cafeteriaCode.
+       */
+      public java.lang.String getCafeteriaCode() {
+        java.lang.Object ref = cafeteriaCode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            cafeteriaCode_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string cafeteria_code = 7;</code>
+       * @return The bytes for cafeteriaCode.
+       */
+      public com.google.protobuf.ByteString
+          getCafeteriaCodeBytes() {
+        java.lang.Object ref = cafeteriaCode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          cafeteriaCode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string cafeteria_code = 7;</code>
+       * @param value The cafeteriaCode to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCafeteriaCode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        cafeteriaCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string cafeteria_code = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCafeteriaCode() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        cafeteriaCode_ = getDefaultInstance().getCafeteriaCode();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string cafeteria_code = 7;</code>
+       * @param value The bytes for cafeteriaCode to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCafeteriaCodeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        cafeteriaCode_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1402,12 +1584,13 @@ public final class EmployeeOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016Employee.proto\"\307\001\n\010Employee\022\023\n\013employe" +
+      "\n\016Employee.proto\"\337\001\n\010Employee\022\023\n\013employe" +
       "e_id\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022\025\n\rbuilding_cod" +
       "e\030\003 \002(\005\022+\n\014floor_number\030\004 \002(\0162\025.Employee" +
       ".FloorNumber\022\016\n\006salary\030\005 \002(\003\022\022\n\ndepartme" +
-      "nt\030\006 \002(\t\"0\n\013FloorNumber\022\n\n\006GROUND\020\000\022\t\n\005F" +
-      "IRST\020\001\022\n\n\006SECOND\020\002"
+      "nt\030\006 \002(\t\022\026\n\016cafeteria_code\030\007 \001(\t\"0\n\013Floo" +
+      "rNumber\022\n\n\006GROUND\020\000\022\t\n\005FIRST\020\001\022\n\n\006SECOND" +
+      "\020\002"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1418,7 +1601,7 @@ public final class EmployeeOuterClass {
     internal_static_Employee_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Employee_descriptor,
-        new java.lang.String[] { "EmployeeId", "Name", "BuildingCode", "FloorNumber", "Salary", "Department", });
+        new java.lang.String[] { "EmployeeId", "Name", "BuildingCode", "FloorNumber", "Salary", "Department", "CafeteriaCode", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
