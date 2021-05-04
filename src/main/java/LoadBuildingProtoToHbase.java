@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
@@ -18,41 +20,28 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-import java.io.IOException;
-
 public class LoadBuildingProtoToHbase extends Configured implements Tool {
 
-    public static class MyMapper extends Mapper<IntWritable, Text, ImmutableBytesWritable, Put> {
+    public static class MyMapper extends Mapper<IntWritable, ImmutableBytesWritable, ImmutableBytesWritable, Put> {
         private static final byte[] CF_BYTES1 = Bytes.toBytes("building_details");
-        private static final byte[] QUAL_BYTES1 = Bytes.toBytes("building_code");
-        private static final byte[] QUAL_BYTES2 = Bytes.toBytes("total_floors");
-        private static final byte[] QUAL_BYTES3 = Bytes.toBytes("companies_in_the_building");
-        private static final byte[] QUAL_BYTES4 = Bytes.toBytes("cafteria_code");
+        private static final byte[] QUAL_BYTES1 = Bytes.toBytes("building_qual");
 
         @Override
-        protected void map(IntWritable key, Text value, Context context) throws IOException, InterruptedException {
+        protected void map(IntWritable key, ImmutableBytesWritable value, Context context) throws IOException, InterruptedException {
             if (key.get() == 0 || value.getLength() == 0) {
                 return;
             }
             System.out.println("in map");
-            System.out.println("key: "+key+" value : "+ value);
-            String[] strArr = value.toString().split("\n");
-            String building_code = strArr[0].split(":")[1].trim();
-            String total_floors = strArr[1].split(":")[1].trim();
-            String companies_in_the_building = strArr[2].split(":")[1].trim();
-            String cafeteria_code = strArr[3].split(":")[1].trim();
 
+            BuildingOuterClass.Building.Builder building =
+                    BuildingOuterClass.Building.newBuilder().mergeFrom(value.get());
             byte[] rowKey = Bytes.toBytes(String.valueOf(key));
             Put put = new Put(rowKey);
-            put.addColumn(CF_BYTES1, QUAL_BYTES1, Bytes.toBytes(building_code));
-            put.addColumn(CF_BYTES1, QUAL_BYTES2, Bytes.toBytes(total_floors));
-            put.addColumn(CF_BYTES1, QUAL_BYTES3, Bytes.toBytes(companies_in_the_building));
-            put.addColumn(CF_BYTES1, QUAL_BYTES4, Bytes.toBytes(cafeteria_code));
+            put.addColumn(CF_BYTES1, QUAL_BYTES1, building.build().toByteArray());
             context.write(new ImmutableBytesWritable(rowKey), put);
         }
 
     }
-
 
     public int run(final String[] args) throws Exception {
         Job job = new Job();
